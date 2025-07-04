@@ -6,7 +6,7 @@ class Product{
 public:
 	Product(std::string name_, float price_, int quantity_): name(name_), price(price_), quantity(quantity_){};
 	//not returning a reference because a local variable will be created. this is bad to return a vector but in this case it's maximum of length 2;
-	virtual std::vector<float> checkOut() = 0;
+	virtual std::vector<float> checkout() = 0;
 	std::string getName(){
 		return name;
 	}
