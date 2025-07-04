@@ -5,7 +5,8 @@
 #include <stdexcept>
 #include <iostream>
 #include <iomanip>
-
+#include "shippingservice.h"
+#include "shippable.h"
 class Customer{
 public:
 	Customer(float balance_):balance(balance_){}
@@ -16,6 +17,10 @@ public:
 			}
 			//res will contain price, quantity, weight
 			std::vector<float> res = product -> checkout();
+			if(res.size() > 1){
+				Shippable* ptr = dynamic_cast<Shippable*>(product);
+				shippableItems.push_back({ptr, quantity});
+			}
 			res.insert(res.begin() + 1, quantity);
 			product -> changeQuantity(quantity);
 			items.push_back({product, res});
@@ -45,23 +50,10 @@ public:
 			if(amount > balance){
 				throw std::runtime_error("balance insufficent");
 			}
-			if(shippingFees > 0){
-				//shipping section print
-				std::cout << "** shipment notice **" << std::endl;
-				for(auto item : items){
-					if(item.second.size() > 2){
-						std::cout << std::left
-							<<item.second[1] << "x " <<
-							std::setw(20) <<
-							item.first -> getName() <<
-							item.second[2]<<
-							"g"
-							<<std::endl;
-					}
-				}
+			if(shippableItems.size() > 0){
+				ShippingService::service(shippableItems);	
 				std::cout << "Total package weight " << totalWeight << "kg" << std::endl; 
 			}
-			std::cout << std::endl;
 			std::cout << "** checkout reciept **" << std::endl;
 			for(auto item : items){
 					std::cout << std::left
@@ -70,8 +62,7 @@ public:
 						item.first -> getName() <<
 						item.second[1] * item.second[0]<<
 						std::endl;
-			}
-			
+			}	
 			std::cout << "--------------------" << std::endl;
 			std::cout << "subtotal: " << subTotal << std::endl;
 			std::cout << "shippingg fees: " << shippingFees << std::endl;
@@ -83,6 +74,7 @@ public:
 		}
 	}
 private:
+	std::vector<std::pair<Shippable*, int>> shippableItems;
 	std::vector<std::pair<Product*, std::vector<float>>> items;
 	float balance;
 };

@@ -26,6 +26,7 @@ public:
 	void changeQuantity(int diff){
 		this -> quantity -= diff;
 	}
+	virtual ~Product() = default;
 protected: 
 	virtual std::vector<float> checkout() = 0;
 	std::string name;

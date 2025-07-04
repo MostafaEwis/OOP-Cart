@@ -26,7 +26,6 @@ int main(int argc, char** argv){
 	Expireable bisciut("biscuts", 2, 3, "may 2025");
 	customer.addToCart(&cheese, 1);
 	customer.addToCart(&tv, 2);
-	customer.addToCart(&tv, 2);
 	customer.addToCart(&card, 1);
 	customer.addToCart(&bisciut, 1);
 	customer.checkout();

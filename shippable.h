@@ -1,7 +1,7 @@
-#ifndef shippable_h
-#define shippable_h
+#ifndef SHIPPABLE_H
+#define SHIPPABLE_H
+
 #include "product.h"
-#include "Customer.h"
 #include <vector>
 
 class Shippable : virtual public Product{
