@@ -14,6 +14,7 @@ public:
 		Expireable(name, price, quantity, expiry),
 		Shippable(name, price, quantity, weight)
 	{}
+protected:
 	std::vector<float> checkout(){
 		return Shippable::checkout();
 	}

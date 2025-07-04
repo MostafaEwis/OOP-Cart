@@ -4,9 +4,9 @@
 #include <vector>
 class Product{
 public:
+	friend class Customer;
 	Product(std::string name_, float price_, int quantity_): name(name_), price(price_), quantity(quantity_){};
 	//not returning a reference because a local variable will be created. this is bad to return a vector but in this case it's maximum of length 2;
-	virtual std::vector<float> checkout() = 0;
 	std::string getName(){
 		return name;
 	}
@@ -24,9 +24,10 @@ public:
 		name = name_;
 	}
 	void changeQuantity(int diff){
-		quantity += diff;
+		this -> quantity -= diff;
 	}
 protected: 
+	virtual std::vector<float> checkout() = 0;
 	std::string name;
 	float price;
 	int quantity;

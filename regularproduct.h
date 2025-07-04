@@ -6,6 +6,7 @@
 class RegularProduct : virtual public Product{
 public:
 	RegularProduct(std::string name, float price, int quantity): Product(name, price, quantity){};
+protected:
 	std::vector<float> checkout(){
 		return std::vector<float>{price};
 	}

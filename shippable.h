@@ -1,6 +1,7 @@
 #ifndef shippable_h
 #define shippable_h
 #include "product.h"
+#include "Customer.h"
 #include <vector>
 
 class Shippable : virtual public Product{
@@ -9,7 +10,7 @@ public:
 	float getWeight(){
 		return weight;
 	}
-
+protected:
 	std::vector<float> checkout(){
 		return std::vector<float>{price, weight};
 	}
