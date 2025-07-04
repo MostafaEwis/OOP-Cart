@@ -10,3 +10,5 @@ my choice for using inhertiance rather than a adding a flag to the class product
   -  I have faced the diamond problem intentionally to demonstrate how I can solve it.
   -  I used upcasting in the Cusotmer class so I can put items in one vector.
   -  I casted product* to Shippable* when applicable so I can send it the shipping service as requested.
+# Design:
+![design](https://github.com/MostafaEwis/OOP-Cart/blob/master/design.jpg)
