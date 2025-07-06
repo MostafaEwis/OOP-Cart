@@ -1,3 +1,9 @@
+# How to run
+compile main.cpp and run the resulting excutable
+```
+g++ ./main.cpp
+./a.exe
+```
 # OOP-Cart
 in this project I have made an OOP cart that has four types of products:
   - Expirable product
