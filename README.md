@@ -20,3 +20,8 @@ my choice for using inhertiance rather than a adding a flag to the class product
 
 # Design:
 ![design](https://github.com/MostafaEwis/OOP-Cart/blob/master/design.jpg)
+
+# Screenshots:
+| code | result | 
+| ---- | ---- |
+|![code](./code.png) | ![result](./result.png) |
